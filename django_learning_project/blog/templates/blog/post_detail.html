@@ -6,7 +6,13 @@
         <div class="media-body">
           <div class="article-metadata">
             <a class="mr-2" href="#">{{ object.author }}</a>
-            <small class="text-muted">{{ object.date_objected|date:"d-F-Y" }}</small>
+            <small class="text-muted">{{ object.date_posted|date:"d-F-Y" }}</small>
+          <div>
+            {% if object.author == user %}
+            <a href="{% url 'post-delete' object.id %}" class="btn btn-outline-danger">Delete Post</a>
+            <a href="{% url 'post-update' object.id %}" class="btn btn-outline-secondary">Update Post</a>
+            {% endif %}
+          </div>
           </div>
           <h2 class="article-title">{{ object.title }}</h2>
           <p class="article-content">{{ object.content }}</p>
