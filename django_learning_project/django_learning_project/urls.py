@@ -23,6 +23,8 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
+# Whenever a url is called it looks into here.
+# We either need to include the urls of the app or just write them down here
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),

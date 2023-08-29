@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
 
+# These url patterns are accessible to the main app because we included it there
+# If we need to use variables in the url path we can just use <> to tell django
+# If we are using class based views, we need to convert them to views first
 urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail') ,

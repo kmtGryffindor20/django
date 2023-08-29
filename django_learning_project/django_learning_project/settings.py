@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# All the apps that we make must be made available in the INSTALLED_APPS
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
@@ -120,8 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+
+# Here the location of static files is wrt the current app
 STATIC_URL = 'static/'
 
+# The media is saved in this root directory thus the main project directory
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -130,10 +134,14 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# We need to define what template we are using for styling
 CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
+# The redirect url after logging in must be defined here
 LOGIN_REDIRECT_URL = 'blog-home'
 
+# The url where login happens must be defined here
 LOGIN_URL = 'login'
 
