@@ -14,6 +14,7 @@ def register(request):
         # And if the form data was valid, i.e, it follows the integrity constraints of the model it refers to.
         # We save the data into that model 
         if form.is_valid():
+            print("X")
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f"Account created for {username}")
